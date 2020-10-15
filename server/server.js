@@ -1,10 +1,3 @@
-/*
- * server.js
- * A part of the TyTalk server.
- * Copyright (C) 2020, Ty Gillespie. All rights reserved.
- * MIT License.
-*/
-
 'use strict';
 const webSocket = require('ws');
 const wss = new WebSocket.Server({
