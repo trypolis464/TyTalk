@@ -1,10 +1,3 @@
-/*
- * client.js
- * A part of the TyTalk Client.
- * Copyright (C) 2020, Ty Gillespie. All rights reserved.
- * Licensed under the MIT License.
-*/
-
 'use strict';
 const connection = new WebSocket('ws://localhost:8080');
 const button = document.querySelector('#send');
