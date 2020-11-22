@@ -1,17 +1,21 @@
-'use strict';
+"use strict";
+
+const name = window.prompt("Enter your name.");
 const connection = new WebSocket('ws://localhost:8080');
 const button = document.querySelector('#send');
 
 connection.onopen = (event) => {
-  console.log('WebSocket is open now.');
+  const data = "<p>" + name + " has connected.</p>";
+  connection.send(data);
 };
 
 connection.onclose = (event) => {
-  console.log('WebSocket is closed now.');
+  const data = "<p>" + name + " has disconnected.</p>";
+  connection.send(data);
 };
 
 connection.onerror = (event) => {
-  console.error('WebSocket error observed:', event);
+  console.error("WebSocket error observed:", event);
 };
 
 connection.onmessage = (event) => {
@@ -20,9 +24,8 @@ connection.onmessage = (event) => {
 };
 
 button.addEventListener("click", () => {
-  const name = document.querySelector('#name');
   const message = document.querySelector('#message');
-  const data = '<p>' + name.value + ': ' + message.value + '</p>';
+  const data = "<p>" + name + ": " + message.value + "</p>";
   connection.send(data);
   message.value = '';
 });
