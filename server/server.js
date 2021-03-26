@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 
-const webSocket = require('ws');
+const webSocket = require("ws");
 
 const wss = new webSocket.Server({
   port: 8080
 });
 
-wss.on('connection', (ws) => {
-  ws.on('message', (data) => {
+wss.on("connection", (ws) => {
+  ws.on("message", (data) => {
     wss.clients.forEach((client) => {
       if (client.readyState === webSocket.OPEN) {
         client.send(data);
@@ -16,4 +16,4 @@ wss.on('connection', (ws) => {
   });
 });
 
-console.log('Server started.');
+console.log("Server started.");
