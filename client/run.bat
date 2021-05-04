@@ -1,4 +1,4 @@
 @echo off
-title TyTalker - Client.
+title TyTalk - Client.
 python -m http.server
 pause

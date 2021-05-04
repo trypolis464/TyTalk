@@ -15,10 +15,11 @@ connection.onmessage = (event) => {
 button.addEventListener("click", () => {
   const name = document.querySelector("#name");
   const message = document.querySelector("#message");
-  const data = "<p>" + name.value + ": " + message.value + "</p>";
-  if (message.value == "") {
+  if (message.value == "" || name.value == "") {
+    // Todo: Make this display a message on the page (probably at the bottom)?
     return;
   }
+  const data = "<p>" + name.value + ": " + message.value + "</p>";
   connection.send(data);
   message.value = "";
 });
