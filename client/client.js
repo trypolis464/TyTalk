@@ -16,6 +16,9 @@ button.addEventListener("click", () => {
   const name = document.querySelector("#name");
   const message = document.querySelector("#message");
   const data = "<p>" + name.value + ": " + message.value + "</p>";
+  if (message.value == "") {
+    return;
+  }
   connection.send(data);
   message.value = "";
 });
